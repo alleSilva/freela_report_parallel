@@ -1,4 +1,4 @@
-defmodule FreelaReport.Parser do
+defmodule FreelaReportParallel.Parser do
   @months %{
     "1" => :janeiro,
     "2" => :feveireiro,
