@@ -42,7 +42,7 @@ defmodule FreelaReportParallel do
       build_map(all_hours, hours_per_month, hours_per_year)
     end
 
-  def sum_values([name, hours, _day, month, year],
+  defp sum_values([name, hours, _day, month, year],
     %{
       :all_hours => all_hours,
       :hours_per_month => hours_per_month,
