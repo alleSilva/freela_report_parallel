@@ -1,21 +1,54 @@
-# FreelaReportParallel
+# Desafio 02 - Gerando relatórios com paralelismo
 
-**TODO: Add description**
+## Sobre o desafio
 
-## Installation
+Nesse desafio, você deverá gerar o mesmo relatório com os mesmos dados do desafio anterior mas dessa vez os dados estão fracionados em três arquivos com 10 mil linhas cada e o relatório deve ser gerado usando esses três arquivos em paralelo.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `freela_report_parallel` to your list of dependencies in `mix.exs`:
+Observe que o resultado final do cálculo de horas de cada pessoa para ano, mês e total de horas deve ser o mesmo do desafio anterior, já que os dados continuam iguais.
+
+O relatório gerado a partir dos arquivos (que estão disponíveis para download logo abaixo) deve estar no seguinte formato:
 
 ```elixir
-def deps do
-  [
-    {:freela_report_parallel, "~> 0.1.0"}
-  ]
-end
+%{
+  all_hours: %{
+        danilo: 500,
+        rafael: 854,
+        ...
+    },
+  hours_per_month: %{
+        danilo: %{
+            janeiro: 40,
+            fevereiro: 64,
+            ...
+        },
+        rafael: %{
+            janeiro: 52,
+            fevereiro: 37,
+            ...
+        }
+    },
+  hours_per_year: %{
+        danilo: %{
+            2016: 276,
+            2017: 412,
+            ...
+        },
+        rafael: %{
+            2016: 376,
+            2017: 348,
+            ...
+        }
+    }
+}
 ```
+Os caracteres ... é o espaço onde ficaria o resto dos dados. Esse é apenas um exemplo visual do que o retorno da função deve possuir, beleza?
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/freela_report_parallel](https://hexdocs.pm/freela_report_parallel).
+Se quiser testar a sua implementação a partir do terminal, rode `iex -S mix` dentro do diretório raiz do projeto 🚀
+
+## Testes
+
+Para rodar o teste da função FreelaReport.Parser.parse_file/1 e da função FreelaReport.build/1, executar o comando no terminal:
+
+`mix test`
+
 
